@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineMatch — Find your next favorite movie</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="logo">🎬 CineMatch</div>
+      <h1>What should you watch tonight?</h1>
+      <p class="tagline">A content-based recommendation engine. Type a movie you love —<br />we'll find films that feel like it.</p>
+
+      <div class="search-wrap">
+        <input id="search" type="text" placeholder="Try &quot;Inception&quot;, &quot;Dangal&quot;, &quot;Spirited Away&quot;…" autocomplete="off" />
+        <div id="suggestions" class="suggestions hidden"></div>
+      </div>
+
+      <div class="quick-row">
+        <span class="quick-label">Mood:</span>
+        <div id="moods" class="pills"></div>
+        <button id="surprise" class="btn-ghost">🎲 Surprise me</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div id="notice" class="notice hidden"></div>
+
+    <section id="results-section" class="hidden">
+      <h2 id="results-title"></h2>
+      <p id="results-sub" class="sub"></p>
+      <div id="cards" class="cards"></div>
+    </section>
+
+    <section class="how">
+      <h3>How it works</h3>
+      <div class="steps">
+        <div class="step"><span>1</span><p>Every movie becomes a <b>TF-IDF vector</b> from its genres + plot.</p></div>
+        <div class="step"><span>2</span><p><b>Cosine similarity</b> measures the angle between two movie vectors.</p></div>
+        <div class="step"><span>3</span><p>The smallest angles = the most similar movies. That's your list.</p></div>
+      </div>
+      <p class="fine">Content-based filtering — no accounts, no tracking, no API keys. <a href="/docs">API docs →</a></p>
+    </section>
+  </main>
+
+  <footer>Made with 🍿 · CineMatch · sample dataset, runs 100% locally</footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
